@@ -1,0 +1,21 @@
+# Central configuration for the NIDS MLOps project
+data:
+  raw_dir: data/raw
+  raw_file: data/dataset.csv          # DVC-tracked dataset used by the app
+  processed_dir: data/processed
+  sample_size: 60000                  # stratified sample used for the tracked dataset
+  random_state: 42
+  label_column: Label
+data_version: 1.0                     # read by src/versioning/version_data.py
+preprocess:
+  drop_duplicates: true
+  drop_constant_columns: true
+  missing_strategy: median            # median | mean | drop
+  clip_infinite: true
+split:
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+model:
+  baseline: decision_tree
+  max_depth: 12
