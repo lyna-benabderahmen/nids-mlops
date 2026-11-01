@@ -1,0 +1,46 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/data/preprocess.py
+    deps:
+    - path: data/dataset.csv
+      hash: md5
+      md5: eb849a7f639b27f9891902cf1b65e6ff
+      size: 18633261
+    - path: src/data/preprocess.py
+      hash: md5
+      md5: 96c4608a2a2d9cbdb1795a14e097c0be
+      size: 3746
+    params:
+      params.yaml:
+        preprocess.missing_strategy: median
+    outs:
+    - path: data/processed/train_dataset.csv
+      hash: md5
+      md5: 19e278565203991682cb39f602061113
+      size: 18645183
+  split:
+    cmd: python src/data/split.py
+    deps:
+    - path: data/processed/train_dataset.csv
+      hash: md5
+      md5: 19e278565203991682cb39f602061113
+      size: 18645183
+    - path: src/data/split.py
+      hash: md5
+      md5: e67188db34cc4b229b02785379df6ec1
+      size: 610
+    params:
+      params.yaml:
+        split.random_state: 42
+        split.stratify: true
+        split.test_size: 0.2
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 475de238cafdc4589ef201af272bee43
+      size: 3650471
+    - path: data/processed/train.csv
+      hash: md5
+      md5: d910dc417bdead696af4e4276e2e8a53
+      size: 14638075

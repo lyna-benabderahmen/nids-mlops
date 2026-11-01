@@ -2,4 +2,3 @@ __pycache__/
 *.pyc
 .venv/
 .tmp_version.csv
-data/processed/
