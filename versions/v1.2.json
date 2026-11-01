@@ -1,0 +1,16 @@
+{
+  "tag": "v1.2",
+  "message": "mean imputation, binary target",
+  "rows": 59610,
+  "columns": 65,
+  "params": {
+    "encoding": "binary",
+    "missing": "mean",
+    "drop_constant": true,
+    "columns": null,
+    "test_size": 0.3,
+    "seed": 42,
+    "stratify": true
+  },
+  "created": "2026-11-01T18:03:30"
+}
