@@ -2,7 +2,7 @@
 
 Called by the Streamlit app, but also usable from the command line.
 """
-import json, subprocess, datetime
+import json, subprocess, datetime, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]          # independent of launch directory
@@ -11,6 +11,8 @@ META = ROOT / "versions"
 
 
 def run(cmd, check=True):
+    if cmd[0] == "dvc":
+        cmd = [sys.executable, "-m", "dvc"] + cmd[1:]
     r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     if check and r.returncode != 0:
         raise RuntimeError(f"{' '.join(cmd)}\n{r.stderr or r.stdout}")
