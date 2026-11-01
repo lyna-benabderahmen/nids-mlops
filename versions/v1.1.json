@@ -1,0 +1,16 @@
+{
+  "tag": "v1.1",
+  "message": "Median imputation, multiclass target, 80/20 split",
+  "rows": 59610,
+  "columns": 65,
+  "params": {
+    "encoding": "multiclass",
+    "missing": "median",
+    "drop_constant": true,
+    "columns": null,
+    "test_size": 0.2,
+    "seed": 42,
+    "stratify": true
+  },
+  "created": "2026-11-01T18:02:53"
+}
