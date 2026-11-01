@@ -1,0 +1,16 @@
+{
+  "tag": "v1.3",
+  "message": "zero imputation, multiclass target",
+  "rows": 59610,
+  "columns": 65,
+  "params": {
+    "encoding": "multiclass",
+    "missing": "zero",
+    "drop_constant": true,
+    "columns": null,
+    "test_size": 0.2,
+    "seed": 42,
+    "stratify": true
+  },
+  "created": "2026-11-01T18:04:04"
+}
